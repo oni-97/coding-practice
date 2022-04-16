@@ -18,7 +18,7 @@ public class MyStack<T> {
 
     private StackNode<T> top;
     int size;
-    int MAX_SIZE = 3;
+    int MAX_SIZE = 10;
 
     public T pop() {
         if (top == null)
