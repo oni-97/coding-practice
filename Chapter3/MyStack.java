@@ -12,13 +12,20 @@ public class MyStack<T> {
         }
     }
 
+    public MyStack() {
+        size = 0;
+    }
+
     private StackNode<T> top;
+    int size;
+    int MAX_SIZE = 3;
 
     public T pop() {
         if (top == null)
             throw new EmptyStackException();
         T item = top.data;
         top = top.next;
+        size--;
         return item;
     }
 
@@ -26,6 +33,7 @@ public class MyStack<T> {
         StackNode<T> t = new StackNode<T>(item);
         t.next = top;
         top = t;
+        size++;
     }
 
     public T peek() {
@@ -36,5 +44,9 @@ public class MyStack<T> {
 
     public boolean isEmpty() {
         return top == null;
+    }
+
+    public boolean isFull() {
+        return size > MAX_SIZE;
     }
 }
